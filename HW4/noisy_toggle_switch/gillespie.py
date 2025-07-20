@@ -5,25 +5,16 @@ def gillespie_alg(model, u0, tend, params, stoich, tstart=0):
     """
     Gillespie algorithm for stochastic simulation.
 
-    Parameters:
-    -----------
-    model : function
-        Function that returns propensity values
-    u0 : list or array
-        Initial state
-    tend : float
-        End time for simulation
-    params : dict
-        Parameters for the model
-    stoich : list
-        Stoichiometry matrix
-    tstart : float, optional
-        Start time for simulation
+    Args:
+        model (function): Function that returns propensity values.
+        u0 (list or array): Initial state.
+        tend (float): End time for simulation.
+        params (dict): Parameters for the model.
+        stoich (list): Stoichiometry matrix.
+        tstart (float, optional): Start time for simulation. Defaults to 0.
 
     Returns:
-    --------
-    tuple
-        (ts, us) - time points and corresponding states
+        tuple: A tuple containing (ts, us) - time points and corresponding states.
     """
     t = tstart
     ts = [t]

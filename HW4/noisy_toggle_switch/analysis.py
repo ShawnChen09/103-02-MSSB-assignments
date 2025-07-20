@@ -8,19 +8,13 @@ def sample_and_average(results, alpha, num_points=100):
     """
     Sample and average results for a given alpha value.
 
-    Parameters:
-    -----------
-    results : dict
-        Simulation results
-    alpha : float
-        Alpha value to analyze
-    num_points : int, optional
-        Number of sample points
+    Args:
+        results (dict): Simulation results.
+        alpha (float): Alpha value to analyze.
+        num_points (int, optional): Number of sample points. Defaults to 100.
 
     Returns:
-    --------
-    tuple
-        (sample_times, mean_p1, mean_p2, std_p1, std_p2)
+        tuple: A tuple containing (sample_times, mean_p1, mean_p2, std_p1, std_p2).
     """
     max_time = max(ts[-1] for ts, _ in results[alpha])
     sample_times = np.linspace(0, max_time, num_points)
@@ -52,19 +46,13 @@ def plot_results(results, u0, num_runs):
     """
     Plot the results of the simulations.
 
-    Parameters:
-    -----------
-    results : dict
-        Simulation results
-    u0 : list
-        Initial state [N1, N2]
-    num_runs : int
-        Number of runs for each alpha value
+    Args:
+        results (dict): Simulation results.
+        u0 (list): Initial state [N1, N2].
+        num_runs (int): Number of runs for each alpha value.
 
     Returns:
-    --------
-    matplotlib.figure.Figure
-        Figure object
+        matplotlib.figure.Figure: Figure object.
     """
     fig = plt.figure(figsize=(12, 8))
     gs = GridSpec(2, 2)
