@@ -1,0 +1,98 @@
+\documentclass[8pt, fleqn]{report}
+\usepackage{amsmath}
+\usepackage{ctex}
+\usepackage{geometry}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage[table]{xcolor}
+\geometry{a4paper, total={7in, 9in}}
+\author{R13621202}
+\date{March 28}
+
+\begin{document}
+
+\section*{Question 3.7.3}
+
+\subsection*{a.}
+
+Let $e_T$ denote the total enzyme concentration: $e_T = e(t) + c(t)$
+
+\begin{align*}
+     & \frac{d}{d t} s(t) = k_{-1} c(t) - k_1 s(t) e(t) = k_{-1} c(t) - k_1 s(t) (e_T - c(t))                                                                     \\
+     & \frac{d}{d t} c(t) = k_1 s(t) e(t) + k_{-2} p(t) e(t) - k_{-1} c(t) - k_2 c(t) = k_1 s(t) (e_T - c(t)) + k_{-2} p(t) (e_T - c(t)) - k_{-1} c(t) - k_2 c(t) \\
+     & \frac{d}{d t} p(t) = k_2 c(t) - k_{-2} p(t) e(t) = k_2 c(t) - k_{-2} p(t) (e_T - c(t))                                                                     \\
+\end{align*}
+
+Apply a quasi-steady-state assumption to the complex C, where
+
+$\frac{d}{d t} c^{qss} (t) = 0$, and the goal is to arrive the description of $c^{qss} = \frac{k_1 e_T s + k_{-2} e_T p}{k_1 s + k_{-2} p + k_{-1} + k_2}$
+
+\begin{align*}
+    0           & = k_1 s(t) [e_T - c^{qss}] + k_{-2} p(t) [e_T - c^{qss}] - k_{-1} c^{qss} - k_2 c^{qss}  \\
+    \Rightarrow & (k_{-1} + k_2) c^{qss} = [k_1 s(t) + k_{-2} p(t)] [e_T - c^{qss}]                        \\
+    \Rightarrow & (k_{-1} + k_2) c^{qss} + [k_1 s(t) + k_{-2} p(t)] c^{qss} = [k_1 s(t) + k_{-2} p(t)] e_T \\
+    \Rightarrow & [k_{-1} + k_2 + k_1 s(t) + k_{-2} p(t)] c^{qss} = [k_1 s(t) + k_{-2} p(t)] e_T           \\
+    \Rightarrow & c^{qss} = \frac{k_1 e_T s(t) + k_{-2} e_T p(t)}{k_1 s(t) + k_{-2} p(t) + k_{-1} + k_2}
+\end{align*}
+
+\begin{align*}
+    \frac{d}{dt} p(t)
+     & = k_2\, c(t) - k_{-2}\, p(t)\Bigl(e_T - c(t)\Bigr)                        \\[1ex]
+     & \quad \text{Substitute } c(t) \text{ with } c^{qss} \text{ and simplify:} \\[1ex]
+     & = k_2\, \frac{k_1 e_T s(t) + k_{-2} e_T p(t)}
+    {k_1 s(t) + k_{-2} p(t) + k_{-1} + k_2}                                      \\
+     & \quad -\, k_{-2}\, p(t) \left(
+    e_T - \frac{k_1 e_T s(t) + k_{-2} e_T p(t)}
+    {k_1 s(t) + k_{-2} p(t) + k_{-1} + k_2} \right)                              \\[1ex]
+     & = \frac{k_1 k_2 e_T s(t) + k_2 k_{-2} e_T p(t)}
+    {k_1 s(t) + k_{-2} p(t) + k_{-1} + k_2}                                      \\[1ex]
+     & \quad -\, \frac{
+    k_1 k_{-2} e_T s(t) p(t)
+    + k_{-2}^2 e_T [p(t)]^2
+    + k_{-1} k_{-2} e_T p(t)
+    + k_2 k_{-2} e_T p(t)
+    - k_1 k_{-2} e_T s(t) p(t)
+    - k_{-2}^2 e_T [p(t)]^2
+    }{k_1 s(t) + k_{-2} p(t) + k_{-1} + k_2}                                     \\[1ex]
+     & = \frac{k_1 k_2 e_T s(t) - k_{-1} k_{-2} e_T p(t)}
+    {k_1 s(t) + k_{-2} p(t) + k_{-1} + k_2}\,.
+\end{align*}
+
+Done.
+
+\subsection*{b.}
+
+Assuming the complex C is in quasi-steady-state with respect to S and P,
+
+\begin{align*}
+    \text{Net rates } S \rightarrow P & = \frac{V_f \frac{s}{K_S} - V_r \frac{p}{K_P}}{1 + \frac{s}{K_S} + \frac{p}{K_P}}                                                                                                      \\
+                                      & = \frac{k_1 k_2 e_T s(t) - k_{-1} k_{-2} e_T p(t)}{k_1 s(t) + k_{-2} p(t) + k_{-1} + k_2}                                                                                              \\
+                                      & \text{divide by } k_{-1} + k_2 \Rightarrow \frac{\frac{k_1 k_2 e_T s(t) - k_{-1} k_{-2} e_T p(t)}{k_{-1} + k_2}}{\frac{k_1 s(t) + k_{-2} p(t) + k_{-1} + k_2}{k_{-1} + k_2}}           \\
+                                      & = \frac{\frac{k_1 k_2 e_T s}{k_{-1} + k_2} + \frac{k_{-1} k_{-2} e_T p}{k_{-1} + k_2}}{\frac{k_1}{k_{-1} + k_2} s + \frac{k_{-2}}{k_{-1} + k_2} p + \frac{k_{-1} + k_2}{k_{-1} + k_2}} \\
+                                      & \text{Substitute } \frac{k_{-1} + k_2}{k_1} \text{ with } K_S, \frac{k_{-1} + k_2}{k_{-2}} \text{ with } K_P                                                                           \\
+                                      & \Rightarrow \frac{\frac{k_2 e_T s}{K_S} + \frac{k_{-1} e_T p}{K_P}}{\frac{s}{K_S} + \frac{p}{K_P} + 1}                                                                                 \\
+                                      & \text{Substitute } k_2 e^T \text{ with } V_f, k_{-1} e^T \text{ with } V_r                                                                                                             \\
+                                      & \Rightarrow \frac{V_f \frac{s}{K_S} + V_r \frac{p}{K_P}}{\frac{s}{K_S} + \frac{p}{K_P} + 1}
+\end{align*}
+
+\[
+    V_f = k_2 e^T, V_r = k_{-1} e^T, K_S = \frac{k_{-1} + k_2}{k_1}, K_P = \frac{k_{-1} + k_2}{k_{-2}} \\
+\]
+
+Done.
+
+\subsection*{c.}
+
+\begin{align*}
+    v & = \frac{d}{d t} p(t) = \frac{k_1 k_2 e_T s(t) - k_{-1} k_{-2} e_T p(t)}{k_1 s(t) + k_{-2} p(t) + k_{-1} + k_2}       \\
+      & \text{when } k_{-2} = 0                                                                                              \\
+      & = \frac{k_1 k_2 e_T s(t)}{k_1 s(t) + k_{-1} + k_2}                                                                   \\
+      & = \frac{k_1 k_2 e_T s(t)}{k_1 \left(s(t) + \frac{k_{-1} + k_2}{k_1}\right)}                                          \\
+      & \text{Define } \textit{Michaelis } \text{constant } K_M = \frac{k_{-1} + k_2}{k_1} , V_{\max} = k_2 e_T              \\
+      & \Rightarrow \frac{V_{\max} s(t)}{s(t) + K_M}, \text{which is the form of the irreversible Michaelis-Menten rate law}
+\end{align*}
+
+Done.
+
+\end{document}
