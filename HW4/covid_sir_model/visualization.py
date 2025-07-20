@@ -1,3 +1,6 @@
+import os
+import subprocess
+
 import matplotlib.pyplot as plt
 from config import STEP_PER_DAY
 
@@ -66,3 +69,50 @@ def combine_plot_results(history_results):
     fig.supylabel("Population")
     plt.tight_layout()
     plt.show()
+
+
+def create_video(
+    frames_dir="frames",
+    output_file="covid_simulation.mp4",
+    framerate=30,
+):
+    """Create a video from saved frames using FFmpeg
+
+    Args:
+        frames_dir: Directory containing the frames
+        output_file: Output video file name
+        framerate: Frames per second in the output video
+
+    Returns:
+        bool: True if successful, False otherwise
+    """
+    try:
+        # Check if FFmpeg is installed
+        subprocess.run(["ffmpeg", "-version"], capture_output=True, check=True)
+
+        # Create video from frames
+        cmd = [
+            "ffmpeg",
+            "-y",  # Overwrite output file if it exists
+            "-framerate",
+            str(framerate),
+            "-i",
+            os.path.join(frames_dir, "frame_%05d.png"),
+            "-c:v",
+            "libx264",
+            "-pix_fmt",
+            "yuv420p",
+            output_file,
+        ]
+        subprocess.run(cmd, check=True)
+        print(f"Video created successfully: {output_file}")
+        return True
+    except subprocess.CalledProcessError:
+        print(
+            "Error: FFmpeg is not installed or an error occurred during video creation."
+        )
+        print("To install FFmpeg, visit: https://ffmpeg.org/download.html")
+        return False
+    except Exception as e:
+        print(f"Error creating video: {e}")
+        return False

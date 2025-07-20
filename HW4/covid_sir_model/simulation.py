@@ -1,3 +1,4 @@
+import os
 import time
 
 import numpy as np
@@ -18,9 +19,15 @@ from health import (
 from particle import dot_product, normalize, random_particles, scalar_product
 
 
-def run_simulation(infect_prob, isolated):
+def run_simulation(
+    infect_prob, isolated, save_frames=False, output_dir="frames"
+):
     pygame.init()
     windowSurface = pygame.display.set_mode(SPACE_SIZE, 0, 32)
+
+    # Create output directory for frames if saving is enabled
+    if save_frames:
+        os.makedirs(output_dir, exist_ok=True)
 
     # Font for displaying statistics
     font = pygame.font.SysFont("Arial", 24)
@@ -146,7 +153,6 @@ def run_simulation(infect_prob, isolated):
         stats_surf = font.render(stats_text, True, (0, 0, 0))
         windowSurface.blit(stats_surf, (10, 10))
 
-        # If all infected have recovered or died, show summary and end the loop
         if i_count == 0:
             summary_text = f"Simulation complete. Final: S:{s_count} I: {i_count} R:{r_count} D:{d_count}"
             print(summary_text)
@@ -155,6 +161,12 @@ def run_simulation(infect_prob, isolated):
             end = True
 
         pygame.display.update()
+
+        if save_frames:
+            pygame.image.save(
+                windowSurface,
+                os.path.join(output_dir, f"frame_{frame_count:05d}.png"),
+            )
 
     time.sleep(0.5)
     pygame.quit()
