@@ -13,7 +13,11 @@ The repository includes homework assignments (HW1-HW4) and a term project focuse
 
   ![RK4 Method](https://github.com/ShawnChen09/MSSB-asgmt/raw/main/img/HW1_rk4.png)
 
-### Homework 2: Enzyme Kinetics
+### Homwwork 2-1: Michaelis-Menten Rate Law Derivation
+ - Check [`3.7.3.pdf`](HW2/3.7.3/3.7.3.pdf).
+
+
+### Homework 2-2: Enzyme Kinetics
 - Michaelis-Menten kinetics model results
 
   ![Michaelis-Menten Kinetics](https://github.com/ShawnChen09/MSSB-asgmt/raw/main/img/HW2_mm.png)
@@ -35,7 +39,16 @@ The repository includes homework assignments (HW1-HW4) and a term project focuse
 
   ![Flux Distribution](https://github.com/ShawnChen09/MSSB-asgmt/raw/main/img/HW3_flux_dist.png)
 
-### Homework 4: Epidemiological Modeling
+### Homework 4-1: Noisy Toggle Switch
+- Bistability with varying alpha ($\alpha$) and initial values
+
+  ![init: (0, 0)](https://github.com/ShawnChen09/MSSB-asgmt/raw/main/img/HW4_toggle_switch_0_0.png)
+
+  ![init: (5, 0)](https://github.com/ShawnChen09/MSSB-asgmt/raw/main/img/HW4_toggle_switch_5_0.png)
+
+  ![init: (0, 5)](https://github.com/ShawnChen09/MSSB-asgmt/raw/main/img/HW4_toggle_switc   h_0_5.png)
+
+### Homework 4-2: Epidemiological Modeling
 - Animated SIR model simulation for COVID-19
 
   ![COVID-19 SIR Animation](https://github.com/ShawnChen09/MSSB-asgmt/raw/main/img/HW4_covid_sir_anim.gif)
