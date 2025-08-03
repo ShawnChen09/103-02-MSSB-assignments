@@ -1,8 +1,4 @@
-# Modeling and Simulation in Systems Biology (BEBI5009)
-
-This repository records the results of assignments and the term project for the course 'Modeling and Simulation in Systems Biology'.
-
-## Course Structure
+# Modeling and Simulation in Systems Biology
 
 The repository includes homework assignments (HW1-HW4) and a term project focused on environmental DNA modeling in the mesopelagic ocean.
 
